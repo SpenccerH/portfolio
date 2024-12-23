@@ -8,6 +8,8 @@ export default {
     extend: {
       colors: {
         'sand': '#F7F5F2',
+        'subgray': '#B3B3B3',
+        'darkgray': '#716B61',
       }
     },
   },
