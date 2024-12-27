@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
 import { RefObject } from 'react';
 
-export default function NavBar({ projectsRef, experienceRef } : { projectsRef: React.RefObject<HTMLElement>, experienceRef: React.RefObject<HTMLElement> }) {
+export default function NavBar({ projectsRef, experienceRef, contactRef } : { projectsRef: React.RefObject<HTMLElement>, experienceRef: React.RefObject<HTMLElement>, contactRef: React.RefObject<HTMLElement> }) {
 
     const [scroll, setScroll] = useState(false);
     const [menu, setMenu] = useState(false);
@@ -33,12 +33,12 @@ export default function NavBar({ projectsRef, experienceRef } : { projectsRef: R
         <div className={`w-full flex flex-col justify-center bg-black text-white fixed px-6 transition-all duration-300 z-50 ${menu ? "bg-opacity-100" : "bg-opacity-80"}  ${scroll ? "h-16" : "h-24"}`}>
             <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-row items-center gap-x-12">
-                    <div className="flex flex-row items-center gap-x-2.5 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                    <button className="flex flex-row items-center gap-x-2.5 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                         <img src={logo} className="h-8" />
                         <div className="hidden sm:block text-xl font-semibold">Spencer Hum</div>
-                    </div>
-                    <div className="hidden sm:block text-sm font-medium cursor-pointer" onClick={() => handleSection(projectsRef)}>Projects</div>
-                    <div className="hidden sm:block text-sm font-medium cursor-pointer" onClick={() => handleSection(experienceRef)}>Experience</div>
+                    </button>
+                    <button className="hidden sm:block text-sm font-medium" onClick={() => handleSection(projectsRef)}>Projects</button>
+                    <button className="hidden sm:block text-sm font-medium" onClick={() => handleSection(experienceRef)}>Experience</button>
                 </div>
                 <div className="flex flex-row items-center gap-x-6">
                     <div className="flex flex-row items-center gap-x-2.5">
@@ -49,20 +49,20 @@ export default function NavBar({ projectsRef, experienceRef } : { projectsRef: R
                             <svg width="24" height="24" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 1C1.44772 1 1 1.44772 1 2V13C1 13.5523 1.44772 14 2 14H13C13.5523 14 14 13.5523 14 13V2C14 1.44772 13.5523 1 13 1H2ZM3.05 6H4.95V12H3.05V6ZM5.075 4.005C5.075 4.59871 4.59371 5.08 4 5.08C3.4063 5.08 2.925 4.59871 2.925 4.005C2.925 3.41129 3.4063 2.93 4 2.93C4.59371 2.93 5.075 3.41129 5.075 4.005ZM12 8.35713C12 6.55208 10.8334 5.85033 9.67449 5.85033C9.29502 5.83163 8.91721 5.91119 8.57874 6.08107C8.32172 6.21007 8.05265 6.50523 7.84516 7.01853H7.79179V6.00044H6V12.0047H7.90616V8.8112C7.8786 8.48413 7.98327 8.06142 8.19741 7.80987C8.41156 7.55832 8.71789 7.49825 8.95015 7.46774H9.02258C9.62874 7.46774 10.0786 7.84301 10.0786 8.78868V12.0047H11.9847L12 8.35713Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path></svg>
                         </a>
                     </div>
-                    <div className="hidden sm:block bg-sand hover:bg-white font-medium px-3 py-1.5 rounded-lg text-black">Contact</div>
-                    <div className="sm:hidden cursor-pointer" onClick={() => setMenu((prev) => !prev)}>
+                    <button className="hidden sm:block bg-sand hover:bg-white font-medium px-3 py-1.5 rounded-lg text-black" onClick={() => handleSection(contactRef)}>Contact</button>
+                    <button className="sm:hidden" onClick={() => setMenu((prev) => !prev)}>
                         <div className="w-4 h-4 flex flex-col justify-between">
                             <span className="w-full h-0.5 bg-white"></span>
                             <span className="w-full h-0.5 bg-white"></span>
                             <span className="w-full h-0.5 bg-white"></span>
                         </div>
-                    </div>
+                    </button>
                 </div>
                 {menu && (
                     <div className={`absolute left-0 w-full bg-black text-white flex flex-col gap-y-4 p-6 transition-all duration-300 ${scroll ? "top-16" : "top-24"}`}>
-                        <div className="font-medium cursor-pointer" onClick={() => handleSection(projectsRef)}>Projects</div>
-                        <div className="font-medium cursor-pointer" onClick={() => handleSection(experienceRef)}>Experience</div>
-                        <div className="font-medium cursor-pointer">Contact</div>
+                        <button className="font-medium text-left" onClick={() => handleSection(projectsRef)}>Projects</button>
+                        <button className="font-medium text-left" onClick={() => handleSection(experienceRef)}>Experience</button>
+                        <button className="font-medium text-left" onClick={() => handleSection(contactRef)}>Contact</button>
                     </div>
                 )}
             </div>

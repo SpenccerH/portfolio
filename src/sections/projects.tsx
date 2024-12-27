@@ -8,11 +8,11 @@ const projects = [
 
 export default function Projects() {
     return (
-        <div className="flex flex-col py-20">
+        <div className="flex flex-col py-20 overflow-hidden">
             <div className="text-3xl font-medium text-center">Projects</div>
             <div className="flex flex-row gap-x-8 justify-center items-center mt-10">
                 {projects.map((project, index) => (
-                    <div key={index} className="bg-white w-[350px] h-[475px] rounded-xl px-2.5 pt-2.5 pb-6 flex flex-col justify-between relative">
+                    <div key={index} className="bg-white w-[350px] h-[475px] rounded-xl px-2.5 pt-2.5 pb-6 flex flex-col justify-between relative overflow-hidden">
                         <div className="flex flex-col">
                             <img src={project.image} className="rounded-lg w-full h-32 border" />
                             <div className="px-2.5 py-4">
