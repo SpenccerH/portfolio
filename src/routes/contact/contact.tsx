@@ -9,10 +9,11 @@ function Contact() {
     const experienceRef = useRef(null);
 
     const home = false;
+    const contact = true;
 
     return (
         <>
-            <NavBar projectsRef={projectsRef} experienceRef={experienceRef} home={home} />
+            <NavBar projectsRef={projectsRef} experienceRef={experienceRef} home={home} contact={contact} />
             <Form />
             <Footer />
         </>

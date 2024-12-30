@@ -11,10 +11,11 @@ function Landing() {
   const experienceRef = useRef(null);
 
   const home = true;
+  const contact = false;
 
   return (
     <>
-      <NavBar projectsRef={projectsRef} experienceRef={experienceRef} home={home} />
+      <NavBar projectsRef={projectsRef} experienceRef={experienceRef} home={home} contact={contact} />
       <Hero />
       <div ref={projectsRef}><Projects /></div>
       <div ref={experienceRef}><Experience /></div>
