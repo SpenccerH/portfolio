@@ -2,36 +2,43 @@ import { useNavigate } from "react-router-dom";
 
 function Form() {
     const navigate = useNavigate();
+    
+    const ACCESS = import.meta.env.VITE_EMAIL_KEY;
 
     const onSubmit = async (event : any) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
+        event.preventDefault();
+        const formData = new FormData(event.target);
 
-    formData.append("access_key", ACCESS);
-
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
-
-    try {
-        const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        },
-        body: json
-        }).then((res) => res.json());
-
-        if (res.success) {
-        console.log("Success", res);
-        navigate("/");
-        } else {
-        console.error("Submission failed", res);
+        if (!ACCESS) {
+            console.error("ACCESS key is undefined!");
+            return;
         }
-    } catch (error) {
-        console.error("Error during submission", error);
-    }
-};
+
+        formData.append("access_key", ACCESS);
+
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        try {
+            const res = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: json
+            }).then((res) => res.json());
+
+            if (res.success) {
+            console.log("Success", res);
+            navigate("/");
+            } else {
+            console.error("Submission failed", res);
+            }
+        } catch (error) {
+            console.error("Error during submission", error);
+        }
+    };
 
     return (
         <div className="w-full h-[650px] flex flex-col items-center justify-center text-center px-8">
