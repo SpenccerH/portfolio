@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png";
+import logo from "../../../assets/logo.png";
 
 const projects = [
     { image: logo, tools: ["TypeScript", "JavaScript", "React", "TailwindCSS", "ExpressJS", "PostgreSQL"], title: "CookKeeper", body: "CookKeeper is a full-stack CRUD application designed to simplify the process of storing, organizing, and managing personal recipes. It provides a seamless way to catalog your favorite recipes, complete with ingredients, instructions and total time.", github: "https://github.com/spencerhum04/CookKeeper" },

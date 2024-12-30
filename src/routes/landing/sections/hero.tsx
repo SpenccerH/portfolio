@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import profile from "../assets/profile.png";
+import profile from "../../../assets/profile.png";
 
 export default function Hero() {
     const [opacity, setOpacity] = useState(1);
