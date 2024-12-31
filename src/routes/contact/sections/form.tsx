@@ -86,7 +86,7 @@ function Form() {
                         </label>
                         
                         <input type="text" name="name" value={formData.name} onChange={handleInputChange}
-                            className="text-sm bg-transparent border border-amber-600 rounded p-2.5 focus:outline-none"
+                            className="font-semibold bg-transparent border border-amber-600 rounded p-2.5 focus:outline-none"
                         />
                     </div>
                     <div className="flex flex-col">
@@ -95,7 +95,7 @@ function Form() {
                             <div className="text-sm text-amber-600">(required)</div>
                         </label>
                         <input type="email" name="email" value={formData.email} onChange={handleInputChange}
-                            className="text-sm bg-transparent border border-amber-600 rounded p-2.5 focus:outline-none"
+                            className="font-semibold bg-transparent border border-amber-600 rounded p-2.5 focus:outline-none"
                         />
                     </div>
                     <div className="flex flex-col">
@@ -104,7 +104,7 @@ function Form() {
                             <div className="text-sm text-amber-600">(required)</div>
                         </label>
                         <textarea name="message" value={formData.message} onChange={handleInputChange}
-                            className="text-sm bg-transparent border border-amber-600 h-24 rounded p-2.5 focus:outline-none"
+                            className="font-semibold bg-transparent border border-amber-600 h-24 rounded p-2.5 focus:outline-none"
                         ></textarea>
                     </div>
                     {error && <div className="text-red-600 text-sm">{error}</div>}
